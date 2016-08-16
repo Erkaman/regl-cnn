@@ -19,6 +19,7 @@ const regl = require('regl')({
 loadJson(function (jsonData) {
   var cnnGpu = require('./gpu.js')(regl, jsonData)
 
+  // container for everything
   var container = document.createElement('div')
   container.style.cssText = 'margin: 0 auto; max-width: 860px;' // center text.
   container.style.fontWeight = '300' // default font weight
@@ -26,15 +27,16 @@ loadJson(function (jsonData) {
   container.style.lineHeight = '1.6em' // default line height
   container.style.fontFamily = "'Roboto',Helvetica,sans-serif"
   container.style.color = '#393939'
-
   document.body.appendChild(container)
 
+  // h1 heder
   var par = document.createElement('h1')
   par.innerHTML = 'GPU Deep Learning Demo'
   par.style.fontWeight = '400'
   par.style.fontSize = '2em'
   container.appendChild(par)
 
+  // paragraph
   par = document.createElement('p')
   par.innerHTML = [
     'Please draw a character into this canvas.<br>',
@@ -51,14 +53,13 @@ loadJson(function (jsonData) {
   container.appendChild(canvas)
   var ctx = canvas.getContext('2d')
 
-// style="display: inline
+  // digit display div
   var digitPar = document.createElement('div')
   digitPar.innerHTML = ''
   digitPar.style.fontWeight = '800'
   digitPar.style.fontSize = '14em'
   digitPar.style.display = 'inline'
   digitPar.style.marginLeft = '50px'
-
   container.appendChild(digitPar)
 
   var btnDiv = document.createElement('div')
@@ -71,20 +72,20 @@ loadJson(function (jsonData) {
     return btn
   }
 
+  // create buttons
   var btn = createBtn()
   btn.innerHTML = 'Clear'
   btn.addEventListener('click', function (e) {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
   }, false)
-
   btn = createBtn()
   btn.innerHTML = 'Recognize'
   btn.addEventListener('click', function (e) {
     recognize()
   }, false)
-
   container.appendChild(btnDiv)
 
+  // h2 header
   par = document.createElement('h2')
   par.innerHTML = 'How does this work?'
   par.style.fontWeight = '400'
@@ -104,7 +105,7 @@ loadJson(function (jsonData) {
   ].join('\n')
   container.appendChild(par)
 
-    // add listeners.
+  // add canvas listeners.
   canvas.addEventListener('mousemove', function (e) {
     canvasListener('move', e)
   }, false)
@@ -230,6 +231,10 @@ loadJson(function (jsonData) {
   }
 
   function recognize () {
+    // NOTE: We need to correctly center and downscale the image before we can feed it to the network.
+    // The below code for doing that is not my code, but is MIT-licensed code adapted from this demo:
+    // http://myselph.de/neuralNet.html
+
     // convert RGBA image to a grayscale array, then compute bounding rectangle and center of mass
     var imgData = ctx.getImageData(0, 0, 280, 280)
     var grayscaleImg = imageDataToGrayscale(imgData)
@@ -279,9 +284,11 @@ loadJson(function (jsonData) {
       }
     }
 
+    // after we have processed the canvas, we can actually run the network now:
     var res = cnnGpu(nnInput)
     console.log('result: ', res)
 
+    // output result to HTML
     var actual = res.indexOf(Math.max.apply(null, res))
     digitPar.innerHTML = actual + ''
   }
