@@ -1,4 +1,4 @@
-var loadJson = require('./common.js').loadJson
+var loadData = require('./common.js').loadData
 var canvas = document.body.appendChild(document.createElement('canvas'))
 canvas.width = 1
 canvas.height = 1
@@ -22,9 +22,9 @@ var testData = [
 var container = document.createElement('div')
 document.body.appendChild(container)
 
-loadJson(function (jsonData) {
+loadData(function (data) {
   container.innerHTML += ('EVALUATE CNN ON CPU <br>')
-  var cnnCpu = require('./cpu.js')(jsonData)
+  var cnnCpu = require('./cpu.js')(data)
 
   testData.forEach(function (d, i) {
     var res = cnnCpu(d[0])
@@ -43,7 +43,7 @@ loadJson(function (jsonData) {
   container.innerHTML +=
   ('-----------------------------------------------------------------------------------------------<br><br><br>')
 
-  var cnnGpu = require('./gpu.js')(regl, jsonData)
+  var cnnGpu = require('./gpu.js')(regl, data)
   container.innerHTML += ('EVALUATE CNN ON GPU <br>')
 
   testData.forEach(function (d, i) {

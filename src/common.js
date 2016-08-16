@@ -45,35 +45,35 @@ function binaryParse (data) {
   return parsed
 }
 
-module.exports.loadJson = function (cb) {
+module.exports.loadData = function (cb) {
   require('resl')({
     manifest: {
-      wConv1Json: {
+      wConv1Data: {
         type: 'binary',
         src: './w_conv1.bin',
         parser: binaryParse
       },
-      bConv1Json: {
+      bConv1Data: {
         type: 'binary',
         src: './b_conv1.bin',
         parser: binaryParse
       },
-      wFc1Json: {
+      wFc1Data: {
         type: 'binary',
         src: './w_fc1.bin',
         parser: binaryParse
       },
-      bFc1Json: {
+      bFc1Data: {
         type: 'binary',
         src: './b_fc1.bin',
         parser: binaryParse
       },
-      wFc2Json: {
+      wFc2Data: {
         type: 'binary',
         src: './w_fc2.bin',
         parser: binaryParse
       },
-      bFc2Json: {
+      bFc2Data: {
         type: 'binary',
         src: './b_fc2.bin',
         parser: binaryParse

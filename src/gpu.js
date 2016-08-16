@@ -473,12 +473,12 @@ module.exports = function (regl, d) {
   //
   //  In advance, we create and cache all the tensors that we need
   //
-  var wConv1 = createTensor(d.wConv1Json, [16, 5, 5])
-  var bConv1 = createTensor(d.bConv1Json, [1, 16])
-  var wFc1 = createTensor(d.wFc1Json, [14 * 14 * 16, 64])
-  var wFc2 = createTensor(d.wFc2Json, [64, 10])
-  var bFc2 = createTensor(d.bFc2Json, [1, 10])
-  var bFc1 = createTensor(d.bFc1Json, [1, 64])
+  var wConv1 = createTensor(d.wConv1Data, [16, 5, 5])
+  var bConv1 = createTensor(d.bConv1Data, [1, 16])
+  var wFc1 = createTensor(d.wFc1Data, [14 * 14 * 16, 64])
+  var wFc2 = createTensor(d.wFc2Data, [64, 10])
+  var bFc2 = createTensor(d.bFc2Data, [1, 10])
+  var bFc1 = createTensor(d.bFc1Data, [1, 64])
 
   //
   // We also create all draw commands.

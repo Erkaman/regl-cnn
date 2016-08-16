@@ -141,8 +141,8 @@ module.exports = function (d) {
   function cnnCpu (xSrc) {
     var x = ndarray(xSrc, [28, 28])
 
-    var wConv1 = ndarray(d.wConv1Json, [16, 5, 5])
-    var bConv1 = ndarray(d.bConv1Json, [16])
+    var wConv1 = ndarray(d.wConv1Data, [16, 5, 5])
+    var bConv1 = ndarray(d.bConv1Data, [16])
 
     // conv, add bias, relu
     var res = cpuConv2d(wConv1, x)
@@ -153,16 +153,16 @@ module.exports = function (d) {
     res = cpuMaxPool(res)
 
     // densely connected layer.
-    var wFc1 = ndarray(d.wFc1Json, [14 * 14 * 16, 64])
-    var bFc1 = ndarray(d.bFc1Json, [1, 64])
+    var wFc1 = ndarray(d.wFc1Data, [14 * 14 * 16, 64])
+    var bFc1 = ndarray(d.bFc1Data, [1, 64])
     res = ndarray(res.data, [1, 14 * 14 * 16])
     res = cpuMul(res, wFc1)
     res = cpuAdd(res, bFc1)
     cpuRelu(res)
 
     // readout layer
-    var wFc2 = ndarray(d.wFc2Json, [64, 10])
-    var bFc2 = ndarray(d.bFc2Json, [1, 10])
+    var wFc2 = ndarray(d.wFc2Data, [64, 10])
+    var bFc2 = ndarray(d.bFc2Data, [1, 10])
     res = cpuMul(res, wFc2)
     res = cpuAdd(res, bFc2)
 

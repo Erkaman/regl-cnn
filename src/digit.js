@@ -1,4 +1,4 @@
-var loadJson = require('./common.js').loadJson
+var loadData = require('./common.js').loadData
 
 var canvas = document.body.appendChild(document.createElement('canvas'))
 canvas.width = 1
@@ -16,8 +16,8 @@ const regl = require('regl')({
   }
 })
 
-loadJson(function (jsonData) {
-  var cnnGpu = require('./gpu.js')(regl, jsonData)
+loadData(function (data) {
+  var cnnGpu = require('./gpu.js')(regl, data)
 
   // container for everything
   var container = document.createElement('div')
