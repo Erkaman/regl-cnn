@@ -1,0 +1,46 @@
+{
+  "name": "regl-cnn",
+  "version": "0.1.0",
+  "description": "Digit recognition with Convolutional Neural Networks in WebGL",
+  "main": "digit.js",
+  "dependencies": {},
+  "devDependencies": {
+    "budo": "^9.0.0",
+    "cwise": "^1.0.9",
+    "ndarray": "^1.0.18",
+    "ndarray-gemm": "^1.0.0",
+    "ndarray-ops": "^1.2.2",
+    "regl": "^1.0.0",
+    "resl": "^1.0.2",
+    "standard": "^7.1.2",
+    "zeros": "^1.0.0"
+  },
+  "scripts": {
+    "test": "standard && cd src && budo --live --open test.js",
+    "start": "cd src && budo --live --open digit.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erkaman/regl-cnn.git"
+  },
+  "keywords": [
+    "regl",
+    "digit",
+    "recognition",
+    "MNIST",
+    "mnist",
+    "CNN",
+    "Convolutional",
+    "Neural",
+    "Network",
+    "Networks",
+    "WebGL",
+    "GPGPU",
+  ],
+  "author": "Eric Arnebäck",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Erkaman/regl-cnn/issues"
+  },
+  "homepage": "https://github.com/Erkaman/regl-cnn"
+}
