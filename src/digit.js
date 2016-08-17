@@ -24,7 +24,7 @@ loadData(function (data) {
 
   // container for everything
   var container = document.createElement('div')
-  container.style.cssText = 'margin: 0 auto; max-width: 860px;' // center text.
+  container.style.cssText = 'margin: 0 auto; max-width: 760px;' // center text.
   container.style.fontWeight = '300' // default font weight
   container.style.fontSize = '1.0em' // default font size
   container.style.lineHeight = '1.6em' // default line height
@@ -45,7 +45,7 @@ loadData(function (data) {
   // paragraph
   par = document.createElement('p')
   par.innerHTML = [
-    'Please draw a character into this canvas.<br>',
+    'Please draw a digit into this canvas.<br>',
     '(It will probably only work in Firefox and Chrome. And it may not work on mobile. It should look like <a href="google.com">this</a>'
   ].join('\n')
   container.appendChild(par)
