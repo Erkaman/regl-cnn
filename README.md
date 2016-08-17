@@ -2,6 +2,8 @@
 
 GPU accelerated handwritten digit recognition with [regl](https://github.com/mikolalysenko/regl).
 
+[Demo here](https://erkaman.github.io/regl-cnn/src/demo.html)
+
 ![Animated](gifs/record_resize.gif)
 
 # Implementation Details
