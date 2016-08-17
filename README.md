@@ -22,6 +22,13 @@ this implementation will provide a foundation for people who, like us,
 wish to experiment with Deep Learning and WebGL The GPU implementation
 can be found [here](https://github.com/Erkaman/regl-cnn/blob/gh-pages/src/gpu.js)
 
+Note that this network will probably be slower than the corresponding
+network implemented on the CPU. This is because of the overhead
+associated with transferring data to and from the GPU. But in the
+future we will attempt implementing more complex networks in the browser,
+such as [Neural Style](https://arxiv.org/pdf/1508.06576v2.pdf), and then we think that we will see a
+significant speedup compared to the CPU.
+
 
 # Build
 
