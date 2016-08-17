@@ -45,7 +45,7 @@ try {
     par = document.createElement('p')
     par.innerHTML = [
       'Please draw a digit into this canvas.<br>',
-      '(It will probably only work in Firefox and Chrome. And it may not work on mobile. It should look like <a href="google.com">this</a>'
+      '(It will probably only work in Firefox and Chrome. And it may not work on mobile. It should look like <a href="http://imgur.com/gallery/AK0kN">this</a>)'
     ].join('\n')
     container.appendChild(par)
 
@@ -100,13 +100,13 @@ try {
     par = document.createElement('p')
     par.innerHTML = [
       'This demo does handwritten digit recognition by evaluating a Convolutional Neural Network on the GPU with WebGL.',
-      'The network was trained in TensorFlow <a href="google.com">by this script</a>, and the network was then reimplemented on the GPU by hand with WebGL.',
+      'The network was trained in TensorFlow <a href="https://github.com/Erkaman/regl-cnn/blob/gh-pages/scripts/create_cnn.py">by this script</a>, and the network was then reimplemented on the GPU by hand with WebGL.',
       'The main purpose of the demo was to demonstate how our WebGL framework',
       '<a href="https://github.com/mikolalysenko/regl">regl</a> can be used to greatly simplify GPGPU programming in WebGL.',
       'The secondary purpose was to test whether evaluating Deep Learning networks in WebGL is doable.',
       'To our knowledge, our implementation is the first implementation ever to attempt GPU accelerating neural networks with WebGL',
       'And we hope that this implementation will provide a foundation for people who, like us, wish to experiment with Deep Learning and WebGL',
-      'The GPU implementation can be found <a href="google.com">here</a>'
+      'The GPU implementation can be found <a href="https://github.com/Erkaman/regl-cnn/blob/gh-pages/src/gpu.js">here</a>'
     ].join('\n')
     container.appendChild(par)
 
